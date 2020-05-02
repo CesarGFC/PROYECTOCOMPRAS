@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <ion-icon name=""></ion-icon> Añadir producto
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="saveProduct()">
+        <ion-icon name="checkbox-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="productGroup">
+    <ion-item>
+      <ion-label position="floating">Nombre
+      </ion-label>
+      <ion-input required type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Precio
+      </ion-label>
+      <ion-input required type="text" formControlName="price"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Ingredientes</ion-label>
+      <ion-toggle formControlName="check" (click)="clearIngredients()"></ion-toggle>
+    </ion-item>
+    <ion-item *ngIf="this.productGroup.get('check').value">
+      <ion-item>
+        <ion-item>
+          <ion-label position="floating">Ingrediente</ion-label>
+          <ion-input type="text" formControlName="ingredient"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-buttons slot="end">
+            <ion-button shape="round" (click)="addIngredient()">
+              <ion-icon name="add"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+      </ion-item>
+    </ion-item>
+    <ion-list *ngFor="let ingredient of ingredients; let i = index">
+      <ion-item>
+        <ion-label>{{ingredient}}</ion-label>
+        <ion-note slot="end">
+          <ion-button color="danger" shape="round" (click)="removeIngredient(i)">
+            <ion-icon name="remove-outline"></ion-icon>
+          </ion-button>
+        </ion-note>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>

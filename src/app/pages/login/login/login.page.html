@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inicio de sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form class="form" [formGroup]="signInGroup">
+    <ion-card-content>
+      <ion-item>
+        <ion-icon slot = "end" name="at-circle-sharp"></ion-icon>
+        <ion-label position="stacked">CORREO</ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon slot = "end" name="key-sharp"></ion-icon>
+        <ion-label position="stacked">CONTRASEÑA</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+    </ion-card-content>
+    <ion-button expand="full" type="submit" (click)="signIn()">
+      INGRESAR
+    </ion-button>
+  </form>
+</ion-content>

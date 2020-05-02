@@ -1,0 +1,7 @@
+{
+  "name": "FoodToGo",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
